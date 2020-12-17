@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Carsharing.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,20 +11,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Carsharing.ViewModel;
 
 namespace Carsharing
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AutorizacionWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AutorizacionWindow : Window
     {
-        public MainWindow()
+        public AutorizacionWindow()
         {
             InitializeComponent();
+        }
+        private void LogIn_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+        }
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+
         }
     }
 }

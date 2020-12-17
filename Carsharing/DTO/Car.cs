@@ -11,38 +11,29 @@ namespace Carsharing.DTO
 {
     public class Car : INotifyPropertyChanged
     {
-        private string title;
-        private string company;
-        private int price;
-
-        public string Title
+        private string name;
+        public string Name
         {
-            get { return title; }
+            get { return name; }
             set
             {
-                title = value;
-                OnPropertyChanged("Title");
+                name = value;
+                OnPropertyChanged("Name");
             }
         }
-        public string Company
+        public CarsCalsses CarsClass { get; }
+        public Car() { }
+        public Car(string Name, CarsCalsses CarsClass)
         {
-            get { return company; }
-            set
-            {
-                company = value;
-                OnPropertyChanged("Company");
-            }
+            this.Name = Name;
+            this.CarsClass = CarsClass;
         }
-        public int Price
+        public enum CarsCalsses
         {
-            get { return price; }
-            set
-            {
-                price = value;
-                OnPropertyChanged("Price");
-            }
+            Econom,
+            Comfort,
+            Business
         }
-
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {

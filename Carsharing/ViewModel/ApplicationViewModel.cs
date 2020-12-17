@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
 using Carsharing.DTO;
 using Carsharing.Model;
+using System.Windows;
 
 namespace Carsharing.ViewModel
 {
@@ -15,8 +16,18 @@ namespace Carsharing.ViewModel
     {
         private Car selectedCar;
         public ObservableCollection<Car> Cars { get; set; }
+        private Parking SelectedParking;
+        public ObservableCollection<Parking> Parkings { get; set; }
+        public Parking selectedParking
+        {
+            get { return selectedParking; }
+            set
+            {
+                selectedParking = value;
+                OnPropertyChanged("SelectedParking");
+            }
+        }
 
-        // команда добавления нового объекта
         private RelayCommand addCommand;
         public RelayCommand AddCommand
         {
@@ -32,7 +43,7 @@ namespace Carsharing.ViewModel
             }
         }
 
-        // команда удаления
+
         private RelayCommand removeCommand;
         public RelayCommand RemoveCommand
         {
@@ -65,10 +76,17 @@ namespace Carsharing.ViewModel
         {
             Cars = new ObservableCollection<Car>
             {
-                new Car { Title="iCar 7", Company="Apple", Price=56000 },
-                new Car {Title="Galaxy S7 Edge", Company="Samsung", Price =60000 },
-                new Car {Title="Elite x3", Company="HP", Price=56000 },
-                new Car {Title="Mi5S", Company="Xiaomi", Price=35000 }
+                new Car("Tayouta", Car.CarsCalsses.Comfort),
+                new Car("Marsedes", Car.CarsCalsses.Business),
+                new Car("Reno", Car.CarsCalsses.Econom),
+                new Car("Mazda", Car.CarsCalsses.Comfort),
+                new Car("Shkoda", Car.CarsCalsses.Comfort)
+            };
+            Parkings = new ObservableCollection<Parking>
+            {
+                new Parking { Location = "вул. Хрещатик 12"},
+                new Parking { Location = "вул. vwsdv 2"},
+                new Parking { Location = "вул. abdsdnbc 87"}
             };
         }
 
